@@ -39,13 +39,6 @@ require 'rexml/document'
 
 module Jekyll
 
-  # Change MY_URL to reflect the site you are using
-  MY_URL = "http://nazz.me"
-
-  # Change SITEMAP_FILE_NAME if you would like your sitemap file
-  # to be called something else
-  SITEMAP_FILE_NAME = "sitemap.xml"
-
   # Any files to exclude from being included in the sitemap.xml
   EXCLUDED_FILES = ["atom.xml"]
 
@@ -131,6 +124,7 @@ module Jekyll
       filename ||= SITEMAP_FILE_NAME
       root = site.dest.slice! 0..-6
       file = File.new(File.join(root, filename), "w")
+      FileUtils.rm_rf("/" + filename)
       formatter = REXML::Formatters::Pretty.new(4)
       formatter.compact = true
       formatter.write(sitemap, file)
