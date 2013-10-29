@@ -122,8 +122,7 @@ module Jekyll
       # File I/O: create sitemap.xml file and write out pretty-printed XML
       filename = site.config['sitemap']['filename'] if site.config['sitemap']
       filename ||= SITEMAP_FILE_NAME
-      root = site.dest.slice! 0..-6
-      file = File.new(File.join(root, filename), "w")
+      file = File.new(File.join(site.config['source'], filename), "w")
       FileUtils.rm_rf("/" + filename)
       formatter = REXML::Formatters::Pretty.new(4)
       formatter.compact = true
