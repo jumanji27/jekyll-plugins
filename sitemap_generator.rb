@@ -123,12 +123,12 @@ module Jekyll
       filename = site.config['sitemap']['filename'] if site.config['sitemap']
       filename ||= SITEMAP_FILE_NAME
       file = File.new(File.join(site.config['source'], filename), "w")
-      FileUtils.rm_rf("/" + filename)
       formatter = REXML::Formatters::Pretty.new(4)
       formatter.compact = true
       formatter.write(sitemap, file)
       file.close
 
+      FileUtils.cp(file, site.config['destination'])
       # Keep the sitemap.xml file from being cleaned by Jekyll
       site.static_files << Jekyll::SitemapFile.new(site, site.dest, "/", filename)
     end
