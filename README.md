@@ -1,1 +1,1 @@
-fork jekyll xml-sitemap, for [nazz.me](http://nazz.me/)
+fork jekyll xml-sitemap, for [jumanji.name](http://jumanji.name/)
