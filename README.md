@@ -1,1 +1,1 @@
-fork jekyll xml-sitemap, for [jumanji.name](http://jumanji.name/)
+Jekyll XML-Sitemap fork, for own needs.
